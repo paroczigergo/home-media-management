@@ -2,3 +2,5 @@
 node_modules
 
 docker-compose/data
+
+docker-compose/infisical/.env
