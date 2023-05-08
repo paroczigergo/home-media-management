@@ -25,5 +25,5 @@ services:
 
 networks:
   default:
-    external:
-      name: medianetwork
+    external: true
+    name: medianetwork

@@ -21,6 +21,6 @@ services:
 
 networks: 
   default: 
-    external: 
-      name: medianetwork
+    external: true
+    name: medianetwork
 # todo secure Plex connection https://hotio.dev/containers/overseerr/
