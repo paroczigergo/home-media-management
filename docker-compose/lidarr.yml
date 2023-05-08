@@ -1,0 +1,25 @@
+---
+version: "3.7"
+services:
+  lidarr:
+    image: cr.hotio.dev/hotio/lidarr:release
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/lidarr/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

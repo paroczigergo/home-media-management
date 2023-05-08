@@ -1,0 +1,26 @@
+---
+version: "3.7"
+services:
+  overseerr:
+    image: cr.hotio.dev/hotio/overseerr:release
+    container_name: overseerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/overseerr/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    ports:
+      - 5055:5055
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork
+# todo secure Plex connection https://hotio.dev/containers/overseerr/

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "plex.fullname" . }}
+  labels:
+    {{- include "plex.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    {{- toYaml .Values.ports | nindent 4 }}
+  selector:
+    {{- include "plex.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta4
+kind: Config
+metadata:
+  name: nginx
+deploy:
+  helm:
+    releases:
+      - name: nginx
+        chartPath: ../../helm/nginx-test
+        skipBuildDependencies: false
+
+portForward:
+  - resourceType: Deployment
+    resourceName: nginx
+    port: 80
+    localPort: 8080

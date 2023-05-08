@@ -1,0 +1,37 @@
+---
+version: "3.7"
+# todo setup vpn
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: cr.hotio.dev/hotio/qbittorrent:release
+    ports:
+      - "8080:8080"
+      # - "8118:8118"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+      # - VPN_ENABLED=true
+      # - VPN_LAN_NETWORK
+      # - VPN_CONF=wg0
+      # - VPN_ADDITIONAL_PORTS
+      # - PRIVOXY_ENABLED=false
+    volumes:
+      - ./data/qbittorrent/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    # cap_add:
+    #   - NET_ADMIN
+    # sysctls:
+    #   - net.ipv4.conf.all.src_valid_mark=1
+    #   - net.ipv6.conf.all.disable_ipv6=0
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

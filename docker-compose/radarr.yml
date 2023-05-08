@@ -1,0 +1,25 @@
+---
+version: "3.7"
+services:
+  radarr:
+    image: cr.hotio.dev/hotio/radarr:release
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/radarr/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

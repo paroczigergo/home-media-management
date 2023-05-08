@@ -1,0 +1,25 @@
+---
+version: "3.7"
+services:
+  readarr:
+    image: cr.hotio.dev/hotio/readarr:testing
+    container_name: readarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/readarr/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    ports:
+      - 8787:8787
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

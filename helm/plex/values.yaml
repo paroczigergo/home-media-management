@@ -1,0 +1,125 @@
+# Default values for plex.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: lscr.io/linuxserver/plex
+  pullPolicy: IfNotPresent
+
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+fullnameOverride: "plex"
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 1000m
+    memory: 4Gi
+  requests:
+    cpu: 1000m
+    memory: 4Gi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  - name: PUID
+    value: "501"
+  - name: PGID
+    value: "20"
+  - name: TZ
+    value: UTC
+  - name: VERSION
+    value: docker
+
+volumes:
+  - name: videos
+    hostPath:
+      path: /Users/sam/Downloads/100videos
+
+volumeMounts:
+  - name: videos
+    mountPath: /videos
+
+ports:
+  - name: http
+    port: 32400
+    targetPort: 32400
+    protocol: TCP
+  - name: upnp
+    port: 1900
+    targetPort: 1900
+    protocol: UDP
+  - name: management
+    port: 3005
+    targetPort: 3005
+    protocol: TCP
+  - name: mdns
+    port: 5353
+    targetPort: 5353
+    protocol: UDP
+  - name: discovery
+    port: 8324
+    targetPort: 8324
+    protocol: TCP
+  - name: udp1
+    port: 32410
+    targetPort: 32410
+    protocol: UDP
+  - name: udp2
+    port: 32412
+    targetPort: 32412
+    protocol: UDP
+  - name: udp3
+    port: 32413
+    targetPort: 32413
+    protocol: UDP
+  - name: udp4
+    port: 32414
+    targetPort: 32414
+    protocol: UDP
+  - name: http2
+    port: 32469
+    targetPort: 32469
+    protocol: TCP

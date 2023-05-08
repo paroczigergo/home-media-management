@@ -1,0 +1,6 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+requires:
+  - path: "./src/plex.skaffold.yaml"
+  - path: "./src/nginx-test.skaffold.yaml"
+  - path: "./src/plex-test.skaffold.yaml"

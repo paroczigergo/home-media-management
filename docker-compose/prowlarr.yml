@@ -1,0 +1,25 @@
+---
+version: "3.7"
+services:
+  prowlarr:
+    image: cr.hotio.dev/hotio/prowlarr:release
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/prowlarr/config:/config
+      - ./data/media:/media
+      - ./data/media/series:/series
+      - ./data/media/movies:/movies
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

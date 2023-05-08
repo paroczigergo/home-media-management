@@ -1,0 +1,22 @@
+---
+version: "3.8"
+services:
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr
+    user: 1000:1000 #Optional but recommended, sets the user uid that Wizarr will run with
+    ports:
+      - 5690:5690
+    volumes:
+      - ./data/wizarr/config:/data/database
+    environment:
+      - APP_URL=http://localhost:32400/ #URL at which you will access and share
+      - DISABLE_BUILTIN_AUTH=false #Set to true ONLY if you are using another auth provider (Authelia, Authentik, etc)
+      - TZ=Etc/UTC
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: 
+      name: medianetwork

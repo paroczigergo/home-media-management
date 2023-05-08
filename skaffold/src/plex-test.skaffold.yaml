@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta4
+kind: Config
+metadata:
+  name: plex
+deploy:
+  helm:
+    releases:
+      - name: plex
+        chartPath: ../../helm/plex
+        skipBuildDependencies: false
+
+portForward:
+  - resourceType: Deployment
+    resourceName: plex
+    port: 32400
+    localPort: 32400

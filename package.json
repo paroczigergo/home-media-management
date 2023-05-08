@@ -1,0 +1,15 @@
+{
+  "name": "home-media-management",
+  "version": "1.0.0",
+  "description": "Home Media Management",
+  "scripts": {
+    "skaffold:start": "cd skaffold && skaffold deploy -m=plex --port-forward",
+    "skaffold:stop": "cd skaffold && skaffold delete",
+    "compose:start": "cd docker-compose && docker-compose up -d",
+    "compose:start:watch": "cd docker-compose && docker-compose up",
+    "compose:stop": "cd docker-compose && docker-compose down",
+    "compose:network": "docker network ls",
+    "compose:ps": "cd docker-compose &&  docker-compose ps",
+    "init": "./scripts/init.sh"
+  }
+}
