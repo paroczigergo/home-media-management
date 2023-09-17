@@ -21,6 +21,12 @@ This project is for learning and collecting useful media management components a
 - [x] [Readarr](https://github.com/Readarr/Readarr)
 - [x] [Overseerr](https://github.com/sct/overseerr)
 
+#### Plex plugins
+
+- [ ] [Kitana](https://github.com/pannal/Kitana)
+- [ ] [Sub-Zero bundle](https://github.com/pannal/Sub-Zero.bundle)
+
+
 #### Indexer management
 
 - [x] [Prowlarr](https://github.com/Prowlarr/Prowlarr)

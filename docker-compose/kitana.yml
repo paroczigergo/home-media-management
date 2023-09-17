@@ -1,0 +1,19 @@
+---
+version: "3.8"
+services:
+  kitana:
+    image: pannal/kitana:latest
+    container_name: kitana
+    volumes:
+      - ./data/kitana:/app/data
+    ports:
+      - 31337:31337
+    #links:
+    #  - plex
+    command: -B 0.0.0.0:31337 -P
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: medianetwork
