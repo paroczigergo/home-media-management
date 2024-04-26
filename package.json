@@ -6,6 +6,7 @@
     "skaffold:start": "cd skaffold && skaffold deploy -m=plex --port-forward",
     "skaffold:stop": "cd skaffold && skaffold delete",
     "compose:start": "cd docker-compose && docker-compose up -d",
+    "compose:start:force": "cd docker-compose && docker-compose up -d --force-recreate",
     "compose:start:watch": "cd docker-compose && docker-compose up",
     "compose:stop": "cd docker-compose && docker-compose down",
     "compose:network": "docker network ls",

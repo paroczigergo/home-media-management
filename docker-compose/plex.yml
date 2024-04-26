@@ -1,40 +1,28 @@
 ---
-
 services:
   plex:
-    image: ghcr.io/hotio/plex:release
+    image: ghcr.io/hotio/plex:latest
     container_name: plex
     environment:
       - PUID=1000
       - PGID=1000
       - UMASK=002
       - TZ=Etc/UTC
-      - PLEX_CLAIM
-      - ADVERTISE_IP
-      - ALLOWED_NETWORKS
-      - PLEX_PASS="https://..."
+      - PLEX_ADVERTISE_URL=""
+      - PLEX_NO_AUTH_NETWORKS=""
+      - PLEX_BETA_INSTALL=false
+      - PLEX_PURGE_CODECS=false
+      - PLEX_CLAIM_TOKEN=claim-ftZxTQSPBMLJf9JMAsCd
     volumes:
       - ./data/plex/test-videos:/test-videos
-      - ./data/media:/media
-      - ./data/media/series:/series
-      - ./data/media/movies:/movies
       - ./data/plex/config:/config
       - ./data/plex/transcode:/transcode
+      - /Volumes/wd2:/hdd1
     restart: unless-stopped
     ports:
       - 32400:32400
-      # - 1900:1900/udp
-      # - 3005:3005
-      # - 5353:5353
-      # - 8324:8324
-      # - 32410:32410/udp
-      # - 32412:32412/udp
-      # - 32413:32413/udp
-      # - 32414:32414/udp
-      # - 32469:32469
 
-
-networks: 
-  default: 
+networks:
+  default:
     external: true
     name: medianetwork

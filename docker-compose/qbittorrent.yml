@@ -1,10 +1,11 @@
 ---
 
 # todo setup vpn
+# admin-adminadmin
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: ghcr.io/hotio/qbittorrent:release
+    image: ghcr.io/hotio/qbittorrent:latest
     ports:
       - "8080:8080"
       # - "8118:8118"
@@ -13,6 +14,7 @@ services:
       - PGID=1000
       - UMASK=002
       - TZ=Etc/UTC
+      - WEBUI_PORTS=8080/tcp,8080/udp
       # - VPN_ENABLED=true
       # - VPN_LAN_NETWORK
       # - VPN_CONF=wg0
@@ -20,9 +22,8 @@ services:
       # - PRIVOXY_ENABLED=false
     volumes:
       - ./data/qbittorrent/config:/config
-      - ./data/media:/media
-      - ./data/media/series:/series
-      - ./data/media/movies:/movies
+      - /Volumes/wd2:/hdd1
+
     # cap_add:
     #   - NET_ADMIN
     # sysctls:

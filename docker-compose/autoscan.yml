@@ -1,0 +1,23 @@
+
+services:
+  autoscan:
+    container_name: autoscan
+    image: ghcr.io/hotio/autoscan:latest
+    ports:
+      - "3030:3030"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+    volumes:
+      - ./data/autoscan/config:/config
+      - ./data/autoscan/data:/data
+      - /Volumes/wd2:/hdd1
+    restart: unless-stopped
+
+
+networks: 
+  default: 
+    external: true
+    name: medianetwork
