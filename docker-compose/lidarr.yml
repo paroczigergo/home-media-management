@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   lidarr:
-    image: cr.hotio.dev/hotio/lidarr:release
+    image: ghcr.io/hotio/lidarr:release
     container_name: lidarr
     environment:
       - PUID=1000

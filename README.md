@@ -70,7 +70,12 @@ This project is for learning and collecting useful media management components a
 - scripts:
   required bash scripts
 
-### Commands
+### Usage
+
+- http://localhost:7575/onboard is the main dashboard
+  -  setup a user (eg admin-adminadmin)
+
+### Install
 
 #### Skaffold managed services (not implemented yet)
 

@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   prowlarr:
-    image: cr.hotio.dev/hotio/prowlarr:release
+    image: ghcr.io/hotio/prowlarr:release
     container_name: prowlarr
     environment:
       - PUID=1000

@@ -1,8 +1,8 @@
 ---
-version: "3"
+
 services:
   plex:
-    image: cr.hotio.dev/hotio/plex:release
+    image: ghcr.io/hotio/plex:release
     container_name: plex
     environment:
       - PUID=1000

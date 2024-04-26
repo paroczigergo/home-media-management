@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   readarr:
-    image: cr.hotio.dev/hotio/readarr:testing
+    image: ghcr.io/hotio/readarr:testing
     container_name: readarr
     environment:
       - PUID=1000

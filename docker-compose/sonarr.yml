@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   sonarr:
-    image: cr.hotio.dev/hotio/sonarr:release
+    image: ghcr.io/hotio/sonarr:release
     container_name: sonarr
     environment:
       - PUID=1000

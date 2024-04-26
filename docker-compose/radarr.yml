@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   radarr:
-    image: cr.hotio.dev/hotio/radarr:release
+    image: ghcr.io/hotio/radarr:release
     container_name: radarr
     environment:
       - PUID=1000

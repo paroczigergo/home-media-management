@@ -1,10 +1,9 @@
 ---
-version: "3.8"
+
 services:
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr
-    user: 1000:1000 #Optional but recommended, sets the user uid that Wizarr will run with
+    image: ghcr.io/wizarrrr/wizarr:latest
     ports:
       - 5690:5690
     volumes:

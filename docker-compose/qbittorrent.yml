@@ -1,10 +1,10 @@
 ---
-version: "3.7"
+
 # todo setup vpn
 services:
   qbittorrent:
     container_name: qbittorrent
-    image: cr.hotio.dev/hotio/qbittorrent:release
+    image: ghcr.io/hotio/qbittorrent:release
     ports:
       - "8080:8080"
       # - "8118:8118"

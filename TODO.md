@@ -34,3 +34,4 @@
 - phole
   - update image
   - fix config https://github.com/pi-hole/docker-pi-hole
+- https://hotio.dev/scripts/pullio/

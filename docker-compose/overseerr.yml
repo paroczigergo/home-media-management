@@ -1,8 +1,8 @@
 ---
-version: "3.7"
+
 services:
   overseerr:
-    image: cr.hotio.dev/hotio/overseerr:release
+    image: ghcr.io/hotio/overseerr:release
     container_name: overseerr
     environment:
       - PUID=1000
