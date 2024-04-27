@@ -2,7 +2,7 @@
 
 services:
   overseerr:
-    image: ghcr.io/hotio/overseerr:release
+    image: ghcr.io/hotio/overseerr:latest
     container_name: overseerr
     environment:
       - PUID=1000
@@ -23,4 +23,3 @@ networks:
   default: 
     external: true
     name: medianetwork
-# todo secure Plex connection https://hotio.dev/containers/overseerr/

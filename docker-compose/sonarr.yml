@@ -2,7 +2,7 @@
 
 services:
   sonarr:
-    image: ghcr.io/hotio/sonarr:release
+    image: ghcr.io/hotio/sonarr:latest
     container_name: sonarr
     environment:
       - PUID=1000

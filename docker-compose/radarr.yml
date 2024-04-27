@@ -2,7 +2,7 @@
 
 services:
   radarr:
-    image: ghcr.io/hotio/radarr:release
+    image: ghcr.io/hotio/radarr:latest
     container_name: radarr
     environment:
       - PUID=1000

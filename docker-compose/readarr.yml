@@ -2,7 +2,7 @@
 
 services:
   readarr:
-    image: ghcr.io/hotio/readarr:testing
+    image: ghcr.io/hotio/readarr:latest
     container_name: readarr
     environment:
       - PUID=1000
